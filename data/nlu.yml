@@ -22,6 +22,9 @@ nlu:
   examples: |
     - status
     - status of payment
+    - Want to know about my order
+    - Is my order Shipped
+    - what about my order
 
 - intent: goodbye
   examples: |
@@ -60,6 +63,10 @@ nlu:
   examples: |
     - perfect
     - great
+    - I am doing good
+    - All Well
+    - all well
+    - doing good 
     - amazing
     - feeling like a king
     - wonderful

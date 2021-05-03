@@ -9,11 +9,6 @@ stories:
   - intent: mood_great
   - action: utter_happy
 
-- story:  order exists  path
-  steps:
-  - intent: order_exists
-  - action: action_check_order_existence
-
 - story: status order path
   steps:
   - intent: greet
