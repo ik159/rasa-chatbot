@@ -30,7 +30,20 @@ class ActionCheckExistence(Action):
             if blob['entity'] == 'orderIDs':
                 name = blob['value']
                 if name in self.knowledge:
-                    dispatcher.utter_message("exists in our db.")
+                    f = open('data/orderStatusDb.json')
+                    data = json.load(f)
+                    for i in data['orders']:
+                       # print(i)
+                        #print(name)
+                        if str(i['id']) == name :
+                            entity_nameCustomer=i['name']
+                            print(entity_nameCustomer)
+                            entity_orderDate=i['date']
+                            entity_status=i['status'] 
+                            entity_deliverydate = i['deliverydate']   
+                    f.close()
+                    print("hellll")
+                    dispatcher.utter_message(response="utter_order_details",nameCustomer=entity_nameCustomer,orderDate=entity_orderDate,status=entity_status ,deliverydate =entity_deliverydate)
                 else:
                     dispatcher.utter_message(
                         text=f"Order ID : {name} doesnt exist in our db, are you sure it is correctly typed?")
