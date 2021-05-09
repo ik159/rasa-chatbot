@@ -18,14 +18,6 @@ nlu:
     - good afternoon
 
 
-- intent: status
-  examples: |
-    - status
-    - status of payment
-    - Want to know about my order
-    - Is my order Shipped
-    - what about my order
-
 - intent: goodbye
   examples: |
     - good afternoon
@@ -114,5 +106,22 @@ nlu:
     - [125](orderIDs)
     - [1234](orderIDs)
     - my order id is [125](orderIDs)
+
+- intent: status
+  examples: |
+    - status
+    - status of payment
+    - Want to know about my order
+    - Is my order Shipped
+    - what about my order
+    - details about my order
+    - check my order
+    - check my order status
+    - verify my order
+    - is my order placed
+    - information about my order
+    - payment of my order
+    - payment status of my order
+    - are there any order placed
 
 
