@@ -1,6 +1,6 @@
-![Screenshot](./S1.jpeg)
+![Screenshot](./s1.png)
 
-![Screenshot](./S2.jpeg)
+![Screenshot](./s2.png)
 
 *Bots Rise!*
 

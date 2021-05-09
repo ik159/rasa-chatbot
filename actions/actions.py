@@ -60,7 +60,6 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
         super().__init__(knowledge_base)
 
 
-<<<<<<< HEAD
 
 
 
@@ -127,5 +126,3 @@ class ActionSubmitProject(Action):
 #         dispatcher.utter_message(text="Hello World!sdretsrdytfg")
 
 #         return []
-=======
->>>>>>> f79ed5d20ec08d062f5f8acf963ccd0d14c6828a
