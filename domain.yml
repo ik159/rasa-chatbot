@@ -24,6 +24,14 @@ intents:
 responses:
   utter_greet:
   - text: "Hey! How are you?"
+
+  utter_order_details:
+  - custom:
+      text: "Here is your order details"
+      name: "{nameCustomer}"
+      orderDate: "{orderDate}"
+      status: "{status}"
+      deliverydate: "{deliverydate}"
   
   utter_askOrderID:
   - text: "Please provide your order ID :)"
