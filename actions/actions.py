@@ -56,19 +56,3 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
         super().__init__(knowledge_base)
 
 
-
-# This is a simple example for a custom action which utters "Hello World!"
-
-
-# class ActionHelloWorld(Action):
-
-#     def name(self) -> Text:
-#         return "action_check_order_existence"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         print("sdfsgd")
-#         dispatcher.utter_message(text="Hello World!sdretsrdytfg")
-
-#         return []
