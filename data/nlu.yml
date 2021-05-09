@@ -125,3 +125,10 @@ nlu:
     - are there any order placed
 
 
+- intent: register_appointment
+  examples: |
+    - please schedule my appointment
+    - i want an appoinment
+    - is slot availeble
+    - book my appointment
+    - save my appointment

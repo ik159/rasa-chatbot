@@ -2,6 +2,18 @@ version: "2.0"
 
 actions:
 - action_check_order_existence
+- validate_appointment_form
+- actions_submit_appoint
+
+forms:
+   appointment_form:
+      name:
+        - type: from_text
+
+slots:
+  name:
+     type: text
+     influence_conversation: false
 
 entities:
 - attribute
@@ -20,6 +32,7 @@ intents:
   - bot_challenge
   - status
   - order_exists
+  - register_appointment
 
 responses:
   utter_greet:
@@ -36,6 +49,9 @@ responses:
   utter_askOrderID:
   - text: "Please provide your order ID :)"
   
+  utter_ask_name:
+
+  - text: "pls enter ur name"
 
   utter_ask_for_assistance:
   - text: "Thats great! How can I assist you today?"
@@ -47,6 +63,9 @@ responses:
 
   utter_did_that_help:
   - text: "Did that help you?"
+  
+  utter_details_thanks:
+  - text: "thanks ur name is {name}"
 
   utter_happy:
   - text: "Great, carry on!"

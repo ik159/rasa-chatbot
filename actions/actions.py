@@ -6,14 +6,18 @@
 
 import json
 from pathlib import Path
-from typing import Any, Text, Dict, List
+from typing import Any, Text, Dict, List ,Optional
 
 
 from rasa_sdk import Action, Tracker
-from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.executor import CollectingDispatcher ,Action
 from rasa_sdk.knowledge_base.storage import InMemoryKnowledgeBase
 from rasa_sdk.knowledge_base.actions import ActionQueryKnowledgeBase
-
+from rasa_sdk import Tracker
+from rasa_sdk.forms import FormValidationAction
+from rasa_sdk.events import AllSlotsReset, SlotSet
+from rasa_sdk.events import SlotSet, EventType
+from rasa_sdk.types import DomainDict
 
 class ActionCheckExistence(Action):
     knowledge = Path("data/orderIDs.txt").read_text().split("\n")
@@ -56,6 +60,47 @@ class MyKnowledgeBaseAction(ActionQueryKnowledgeBase):
         super().__init__(knowledge_base)
 
 
+
+
+
+# show projects
+class ValidateRegisterForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_appointment_form"
+    def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> List[EventType]:
+        return []
+
+    def validate_name(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate slot value."""
+        if not slot_value:
+         return {"name": None}
+        else: 
+         return {"name": slot_value}	
+class ActionSubmitProject(Action):
+    def name(self) -> Text:
+        return "actions_submit_appoint"
+
+    def run(
+        self,
+        dispatcher,
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> List[Dict[Text, Any]]:
+	
+        user_name = tracker.get_slot("registeremail")
+        print("email id  is  : ",user_name) 
+        
+		
+        dispatcher.utter_message(template="utter_details_thanks")
+        return[]
 
 # This is a simple example for a custom action which utters "Hello World!"
 

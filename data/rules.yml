@@ -11,3 +11,24 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+
+- rule: register form
+  steps:
+  - intent: register_appointment
+  - action: utter_ask_name
+  - action: appointment_form
+  - active_loop: appointment_form
+  
+- rule: Submit Project form
+  condition:
+  # Condition that form is active.
+  - active_loop: appointment_form
+  steps:
+  # Form is deactivated
+  - action: appointment_form
+  - active_loop: null
+  - slot_was_set:
+    - name: null
+  # The actions we want to run when the form is submitted.
+  - action: actions_submit_appoint
