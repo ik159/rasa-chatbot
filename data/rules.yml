@@ -16,7 +16,6 @@ rules:
 - rule: register form
   steps:
   - intent: register_appointment
-  - action: utter_ask_name
   - action: appointment_form
   - active_loop: appointment_form
   
@@ -30,5 +29,7 @@ rules:
   - active_loop: null
   - slot_was_set:
     - name: null
+    - appointment_date: null
+    - description: null
   # The actions we want to run when the form is submitted.
   - action: actions_submit_appoint

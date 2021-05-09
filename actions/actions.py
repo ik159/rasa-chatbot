@@ -80,10 +80,16 @@ class ValidateRegisterForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate slot value."""
-        if not slot_value:
-         return {"name": None}
-        else: 
-         return {"name": slot_value}	
+        required_slots = ["name" , "appointment_date" , "description"]
+        for slot_name in required_slots:
+            if tracker.slots.get(slot_name) is None:
+                return [SlotSet("requested_slot" , slot_name)]
+ 
+        return [SlotSet("requested_slot" , None)]
+       # if not slot_value:
+       #  return {"name": None}
+       # else: 
+        # return {"name": slot_value}	
 class ActionSubmitProject(Action):
     def name(self) -> Text:
         return "actions_submit_appoint"
@@ -95,8 +101,11 @@ class ActionSubmitProject(Action):
         domain: "DomainDict",
     ) -> List[Dict[Text, Any]]:
 	
-        user_name = tracker.get_slot("registeremail")
-        print("email id  is  : ",user_name) 
+        user_name = tracker.get_slot("name")
+        appointment_date = tracker.get_slot("appointment_date")
+        description = tracker.get_slot("description")
+        print("name  is  : ",user_name) 
+        print("date is  is  : ",appointment_date) 
         
 		
         dispatcher.utter_message(template="utter_details_thanks")
