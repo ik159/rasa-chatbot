@@ -82,6 +82,6 @@ Thank you for testing our bot <3
 
 Created by: 
 **Team Yumit**
-- Ishan Kumar (@ik159)
-- Shriti Chandra (@chandrashritii)
+- Ishan Kumar (@ik159)(https://github.com/ik159)
+- Shriti Chandra (@chandrashritii)(https://github.com/chandrashritii)
   
